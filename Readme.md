@@ -1,3 +1,2 @@
-# In this Module we'll be learning more about API's in details, ie patch, delete all these requests
-# and we will discuss all these through Restful API's.
+# In this Module we'll be learning more about API's in details, ie patch, delete all these requests and we will discuss all these through Restful API's.
 Basically REST is a set of rules to be used for creating web services.
