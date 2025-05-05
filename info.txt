@@ -1,3 +1,8 @@
 REST: Representational State Transfer (REST) is an architectural style for designing networked applications.
 Or we can say, It's a architectural style that defines a set of constraints to be used for creating web services.
 Rest is an important concept in web development and it's widely used in building web services.
+
+It is not a protocol or standard. While REST APIs can be accessed through a number of communication protocols, most commonly, 
+they are called over HTTPS, so the guidelines below apply to REST API endpoints that will be called over the internet.
+
+We use RESTful API's to perfrom CRUD operations on the server side. CRUD stands for Create, Read, Update and Delete.
