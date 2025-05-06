@@ -73,7 +73,7 @@ app.get("/", (req,res)=>{
 
 app.get("/posts", (req,res)=>{
     // res.send("Post request received");
-    res.render("index.ejs", {});
+    res.render("index.ejs", {posts});
 });
 
 app.listen(port, ()=>{
