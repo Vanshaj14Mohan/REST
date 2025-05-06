@@ -1,18 +1,79 @@
+// const express = require("express");
+// const app = express();
+
+// const port = 8080;
+
+// const path = require("path");
+
+// app.use(express.urlencoded({extended: true}));
+// app.use(express.static(path.join(__dirname, "public")));
+
+// app.set("view engine", "ejs");
+// app.set("views", path.join(__dirname, "views"));
+
+// //not making it const as we may have to delete it later
+// let posts = [
+//     {
+//         username: "Thomas Shelby",
+//         content: "I love to work"
+//     },
+//     {
+//         username: "Arthur Shelby",
+//         content: "I love swimming"
+//     },
+//     {
+//         username: "John Shelby",
+//         content: "I love to play golf"
+//     },
+// ];
+
+
+// app.get("/", (req,res)=>{
+//     res.send("Server working well");
+// });
+
+// app.get("/posts", (req,res)=>{
+//     res.render("index.ejs", {posts});
+// });
+
+// app.listen(port, ()=>{
+//     console.log(`App is listening on port ${port}`);
+// });
 const express = require("express");
 const app = express();
-
 const port = 8080;
 
 const path = require("path");
 
 app.use(express.urlencoded({extended: true}));
-app.set("view engine", "ejs");
+
+app.set("viw engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.set(express.static(path.join(__dirname, "public")));
 
+let posts = [
+    {
+        username: "Thomas Shelby",
+        content: "I love to work"
+    },
+    {
+        username: "Arthur Shelby",
+        content: "I love swimming"
+    },
+    {
+        username: "John Shelby",
+        content: "I love to play golf"
+    },
+];
+
 app.get("/", (req,res)=>{
-    res.send("Server working well");
+    res.send("Server is working well");
+});
+
+app.get("/posts", (req,res)=>{
+    // res.send("Post request received");
+    res.render("index.ejs", {});
 });
 
 app.listen(port, ()=>{
