@@ -1,0 +1,1 @@
+In this we will store all our EJS, Templates files:
