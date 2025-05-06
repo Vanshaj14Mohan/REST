@@ -6,3 +6,27 @@ It is not a protocol or standard. While REST APIs can be accessed through a numb
 they are called over HTTPS, so the guidelines below apply to REST API endpoints that will be called over the internet.
 
 We use RESTful API's to perfrom CRUD operations on the server side. CRUD stands for Create, Read, Update and Delete.
+
+CRUD Operations:
+1. Create: This operation is used to create a new resource on the server side.
+2. Read: This operation is used to read the data from the server side.
+3. Update: This operation is used to update the existing resource on the server side.
+4. Delete: This operation is used to delete the existing resource from the server side.
+
+For READ we'll use:
+GET => Retrieves resources.
+
+For CREATE we'll use:
+POST => Submits new data to the server.
+
+For UPDATE we'll use:
+PUT => Updates existing data.
+
+For updating existing data partially we'll use:
+PATCH => Update existing data partially.
+
+For DELETE we'll use:
+DELETE => Deletes existing data, Removes data.
+
+So in this module we will be making a Quora post kinda page using RESTful API's. Won't be givimg too much attention on the UI of it just 
+bulding logic would be our main focus.
