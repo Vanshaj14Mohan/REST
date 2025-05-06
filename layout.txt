@@ -1,0 +1,12 @@
+CREATING RESTFUL API"S 
+In this I'll discuss the roadmap of my module how I'm gonna make it.
+1: GET => /posts => To get data from all posts. Index(main) route.
+
+2: POST => /posts => To add new post. CREATE route.
+
+3: GET => /posts/:id => To get data from a single post(using id). SHOW route.
+
+4: PATCH => /posts/:id => To update data of a single post(using id). UPDATE route. 
+can use PUT here too would work the same way as PATCH.
+
+5: DELETE => /posts/:id => To delete a single post(using id). DESTROY route.
