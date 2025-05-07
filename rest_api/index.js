@@ -43,7 +43,8 @@ app.post("/posts", (req,res)=>{
     // console.log(req.body);
     let {username, content} = req.body; //doing desturcturing.
     posts.push({username, content}); //posts being the array we used earlier.
-    res.send("Post request received");
+    // res.send("Post request received");
+    res.redirect("/posts");
 });
 
 app.listen(port, ()=>{
