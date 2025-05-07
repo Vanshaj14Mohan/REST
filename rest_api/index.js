@@ -39,6 +39,13 @@ app.get("/posts/new", (req,res)=>{
     res.render("new.ejs");
 });
 
+app.post("/posts", (req,res)=>{
+    // console.log(req.body);
+    let {username, content} = req.body; //doing desturcturing.
+    posts.push({username, content}); //posts being the array we used earlier.
+    res.send("Post request received");
+});
+
 app.listen(port, ()=>{
     console.log(`App is listening on port ${port}`);
 });

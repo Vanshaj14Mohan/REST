@@ -5,6 +5,7 @@ In this I'll discuss the roadmap of my module how I'm gonna make it.
 2: POST => /posts => To add new post. CREATE route.
 2 routes actually
 . Serve the form (we will make a form here) to add new post. GET /posts/new
+as soon as the form gets submit, it sends request to the /posts path.
 . Add the new post. POST /posts
 
 3: GET => /posts/:id => To get data from a single post(using id). SHOW route.
