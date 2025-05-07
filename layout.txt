@@ -3,6 +3,9 @@ In this I'll discuss the roadmap of my module how I'm gonna make it.
 1: GET => /posts => To get data from all posts. Index(main) route.
 
 2: POST => /posts => To add new post. CREATE route.
+2 routes actually
+. Serve the form (we will make a form here) to add new post. GET /posts/new
+. Add the new post. POST /posts
 
 3: GET => /posts/:id => To get data from a single post(using id). SHOW route.
 
