@@ -4,6 +4,9 @@ const port = 8080;
 
 const path = require("path");
 
+const { v4: uuidv4 } = require('uuid'); //using version 4 and naming it uuidv4
+// uuidv4(); Generate unique id's.
+
 app.use(express.urlencoded({extended: true}));
 
 app.set("viw engine", "ejs");
@@ -13,17 +16,20 @@ app.use(express.static(path.join(__dirname, "public")));
 
 let posts = [
     {
-        id: "1a",
+        // id: "1a",
+        id: uuidv4(),
         username: "Thomas Shelby",
         content: "I love to work"
     },
     {
-        id: "2b",
+        // id: "2b",
+        id: uuidv4(),
         username: "Arthur Shelby",
         content: "I love swimming"
     },
     {
-        id: "3c",
+        // id: "3c",
+        id: uuidv4(),
         username: "John Shelby",
         content: "I love to play golf"
     },
