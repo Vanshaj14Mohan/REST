@@ -51,19 +51,33 @@ app.get("/posts/new", (req,res)=>{
 app.post("/posts", (req,res)=>{
     // console.log(req.body);
     let {username, content} = req.body; //doing desturcturing. gathering username and content.
-    posts.push({username, content}); //posts being the array we used earlier.
+    let id = uuidv4();
+    posts.push({id, username, content}); //posts being the array we used earlier.
     // res.send("Post request received");
     res.redirect("/posts");
 });
 
 app.get("/posts/:id", (req,res)=>{
     let {id} = req.params; //id retrieve
-    // console.log(id);
+    console.log(id);
     let post = posts.find((p) => id === p.id); //find the post with the id where p = posts
     // console.log(post);
     // res.send("request working");
     res.render("show.ejs", {post});
 });
+
+//to update the content part now, can use put request too here
+//we will send patch request through hoppscotch 
+// app.patch("/posts/:id", (req,res)=>{
+//     let {id} = req.params; //id retrieve
+//     let newContent = req.body.content;
+//     let post = posts.find((p) => id === p.id); 
+//     post.content = newContent;
+//     console.log(post);
+//     // console.log(id);
+//     res.send("Patch request working");
+// });
+
 
 app.listen(port, ()=>{
     console.log(`App is listening on port ${port}`);
