@@ -1,34 +1,28 @@
 const express = require("express");
 const app = express();
 const port = 8080;
-
 const path = require("path");
+const { v4: uuidv4 } = require('uuid');
+uuidv4();
 
-const { v4: uuidv4 } = require('uuid'); //using version 4 and naming it uuidv4
-// uuidv4(); Generate unique id's.
+app.use(express.urlencoded({extended:true}));
 
-app.use(express.urlencoded({extended: true}));
-
-app.set("viw engine", "ejs");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
-
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public")))
 
 let posts = [
     {
-        // id: "1a",
         id: uuidv4(),
         username: "Thomas Shelby",
         content: "I love to work"
     },
     {
-        // id: "2b",
         id: uuidv4(),
         username: "Arthur Shelby",
         content: "I love swimming"
     },
     {
-        // id: "3c",
         id: uuidv4(),
         username: "John Shelby",
         content: "I love to play golf"
@@ -36,11 +30,10 @@ let posts = [
 ];
 
 app.get("/", (req,res)=>{
-    res.send("Server is working well");
+    res.send("Server working well");
 });
 
 app.get("/posts", (req,res)=>{
-    // res.send("Post request received");
     res.render("index.ejs", {posts});
 });
 
@@ -48,37 +41,39 @@ app.get("/posts/new", (req,res)=>{
     res.render("new.ejs");
 });
 
+//In get request info comes in it's parameters that's why req.params
+//But in post request info comes in the body of the request that's why req.body
 app.post("/posts", (req,res)=>{
     // console.log(req.body);
-    let {username, content} = req.body; //doing desturcturing. gathering username and content.
+    let {username, content} = req.body;
     let id = uuidv4();
-    posts.push({id, username, content}); //posts being the array we used earlier.
-    // res.send("Post request received");
-    res.redirect("/posts");
+    posts.push({id, username, content});
+    // res.send("Post request working");
+    res.redirect("/posts"); //by default it will send get request only
 });
 
 app.get("/posts/:id", (req,res)=>{
-    let {id} = req.params; //id retrieve
+    let {id} = req.params;
     console.log(id);
-    let post = posts.find((p) => id === p.id); //find the post with the id where p = posts
+    let post = posts.find((p) => id === p.id);
     // console.log(post);
-    // res.send("request working");
+    // res.send("Id checked");
+     if (!post) {
+        // You can render a 404 page or send a message
+        return res.status(404).send("Post not found");
+    }
     res.render("show.ejs", {post});
 });
 
-//to update the content part now, can use put request too here
-//we will send patch request through hoppscotch 
-// app.patch("/posts/:id", (req,res)=>{
-//     let {id} = req.params; //id retrieve
-//     let newContent = req.body.content;
-//     let post = posts.find((p) => id === p.id); 
-//     post.content = newContent;
-//     console.log(post);
-//     // console.log(id);
-//     res.send("Patch request working");
-// });
+app.patch("/posts/:id", (req,res)=>{
+    let {id} = req.params;
+    let newContent = req.body.content;
+    let post = posts.find((p) => id === p.id);
+    post.content = newContent;
+    console.log(post);
+    res.send("Patch request working");
+});
 
-
-app.listen(port, ()=>{
+app.listen(port, (req,res)=>{
     console.log(`App is listening on port ${port}`);
 });
