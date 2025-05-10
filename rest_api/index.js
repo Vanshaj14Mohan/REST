@@ -65,14 +65,14 @@ app.get("/posts/:id", (req,res)=>{
     res.render("show.ejs", {post});
 });
 
-// app.patch("/posts/:id", (req,res)=>{
-//     let {id} = req.params;
-//     let newContent = req.body.content;
-//     let post = posts.find((p) => id === p.id);
-//     post.content = newContent;
-//     console.log(post);
-//     res.send("Patch request working");
-// });
+app.patch("/posts/:id", (req,res)=>{
+    let {id} = req.params;
+    let newContent = req.body.content;
+    let post = posts.find((p) => id === p.id);
+    post.content = newContent;
+    console.log(post);
+    res.send("Patch request working");
+});
 
 app.listen(port, (req,res)=>{
     console.log(`App is listening on port ${port}`);
